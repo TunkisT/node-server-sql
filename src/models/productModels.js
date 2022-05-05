@@ -44,8 +44,21 @@ async function deleteProductFromDb(id) {
   }
 }
 
+async function getTotalProductsFromDb() {
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    const sql = `SELECT COUNT(*) FROM products`;
+    const [result] = await connection.query(sql);
+    await connection.close();
+    return result;
+  } catch (error) {
+    return false;
+  }
+}
+
 module.exports = {
   getProductsFromDb,
   postProductsToDb,
   deleteProductFromDb,
+  getTotalProductsFromDb,
 };

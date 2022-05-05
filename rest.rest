@@ -1,14 +1,16 @@
 GET http://localhost:3000/products
 ###
+GET http://localhost:3000/totalproducts
+###
 POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-    "image_url": "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/Glass-and-bottle-of-milk-fe0997a.jpg?quality=90&resize=960,872",
+    "image_url": "Test url",
     "title": "Test",
     "description": "Test",
     "price": "80"
 }
 ###
-DELETE http://localhost:3000/products/1
+DELETE http://localhost:3000/products/46
 ###
