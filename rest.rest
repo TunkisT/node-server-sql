@@ -9,3 +9,6 @@ Content-Type: application/json
     "description": "Test",
     "price": "80"
 }
+###
+DELETE http://localhost:3000/products/1
+###

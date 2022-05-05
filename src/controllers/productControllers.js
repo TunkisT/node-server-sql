@@ -15,7 +15,16 @@ async function postProducts(req, res) {
     : res.status(200).json(accObj);
 }
 
+async function deleteProduct(req, res) {
+  const { id } = req.params;
+  const accObj = await getProductsFromDb(id);
+  !accObj
+    ? res.status(500).json('Something get wrong')
+    : res.status(200).json(accObj);
+}
+
 module.exports = {
   getProducts,
   postProducts,
+  deleteProduct,
 };

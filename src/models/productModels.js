@@ -32,7 +32,20 @@ async function postProductsToDb(data) {
   }
 }
 
+async function deleteProductFromDb(id) {
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    const sql = `DELETE FROM products WHERE id = ? LIMIT 1`;
+    const [result] = await connection.execute(sql, [id]);
+    await connection.close();
+    return result;
+  } catch (error) {
+    return false;
+  }
+}
+
 module.exports = {
   getProductsFromDb,
   postProductsToDb,
+  deleteProductFromDb,
 };
